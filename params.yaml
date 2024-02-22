@@ -1,0 +1,22 @@
+
+AUGMENTATION: True #used if you want augmentation 
+
+#use for data generator
+IMAGE_SIZE: [224, 224, 3] 
+BATCH_SIZE: 16
+
+#for training data
+EPOCHS: 1
+
+
+#use for updating predefined model
+INCLUDE_TOP: False
+# Parameter related model
+AUGMENTATION: True
+IMAGE_SIZE: [224, 224, 3] # as per VGG 16 model
+BATCH_SIZE: 16
+INCLUDE_TOP: False
+EPOCHS: 1
+CLASSES: 2
+WEIGHTS: imagenet
+LEARNING_RATE: 0.01
