@@ -1,4 +1,3 @@
-
 from CNNClassifier.constant import PARAM_FILE_PATH ,CONFIG_FILE_PATH
 import os 
 import urllib.request as request 
@@ -7,18 +6,23 @@ from CNNClassifier.logger import logging
 from pathlib import Path 
 import tqdm as tqdm
 from CNNClassifier.config.configuration import ConfigurationManager
+from CNNClassifier.exception import CustomException 
+import os ,sys
 
 class DataIngestion :
     def __init__(self ,config:ConfigurationManager):
         self.config = config 
 
     def download_file(self):
-        if not os.path.exists(self.config.local_data_file):
-            filenmae , url = request.urlretrieve(
-                url=self.config.source_URL ,
-                filename= self.config.local_data_file
-            )
-
+        try:
+            if not os.path.exists(self.config.local_data_file):
+                filenmae , url = request.urlretrieve(
+                    url=self.config.source_URL ,
+                    filename= self.config.local_data_file
+                ) 
+        except Exception as e:
+            logging.info(f'Unable to Donload file {self.config.local_data_file}')
+            raise CustomException(e,sys)
 
     def get_updated_list_of_file(self ,list_of_files):
         updated_list_of_file = [f for f in list_of_files if f.endswith('.jpg') and ("cat" or "dog" in f) ]
