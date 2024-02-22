@@ -6,9 +6,6 @@ import os ,sys
 process = 'DataIngestion'
 
 
-
-
-
 def main():
     try:
         config = ConfigurationManager()
