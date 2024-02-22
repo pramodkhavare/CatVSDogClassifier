@@ -1,5 +1,5 @@
 import os ,sys 
-from CNNClassifier.utils.utils import *
+from CNNClassifier.utils.utils import read_yaml ,create_directory
 from CNNClassifier.logger import logging 
 from CNNClassifier.exception import CustomException 
 from tqdm import tqdm
