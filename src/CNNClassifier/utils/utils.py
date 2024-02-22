@@ -4,7 +4,7 @@ import os ,sys
 from pathlib import Path 
 from ensure import ensure_annotations
 from box import ConfigBox
-from yaml import yaml
+import yaml as yaml
 
 @ensure_annotations
 def read_yaml(path_to_yaml :Path):
