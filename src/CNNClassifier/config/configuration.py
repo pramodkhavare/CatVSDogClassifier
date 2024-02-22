@@ -1,15 +1,15 @@
 import os,sys
 from CNNClassifier.utils.utils import read_yaml ,create_directory 
 from CNNClassifier.entity.config_entity import DataIngestionConfig ,PrepareModelConfig ,PrepareCallbacksConfig ,TrainingConfig ,EvaluationConfig
-from CNNClassifier.constant import PARAMS_FILE_PATH ,CONFIG_FILE_PATH 
+from CNNClassifier.constant import PARAM_FILE_PATH ,CONFIG_FILE_PATH 
 from CNNClassifier.exception import CustomException 
-from CNNClassifier import logging
+from CNNClassifier.logger import logging
 class ConfigurationManager():
     """
     This classs will manage all classes from config_entity file
     and link them with config.yaml file
     """
-    def __init__(self, param_file_path =PARAMS_FILE_PATH ,config_file_path =CONFIG_FILE_PATH ) -> None:
+    def __init__(self, param_file_path =PARAM_FILE_PATH ,config_file_path =CONFIG_FILE_PATH ) -> None:
         """
         self.config and self.param will help you to read .yaml  file where data related with 
         model is stored
@@ -25,8 +25,8 @@ class ConfigurationManager():
             create_directory([config.root_dir])
             data_ingestion_config = DataIngestionConfig(
                 root_dir =  config.root_dir,
-                Source_url= config.sourse_URL ,
-                local_data_file = config.local_data_file ,
+                source_URL= config.source_URL,
+                local_data_file = config.local_data_file,
                 unzip_dir= config.unzip_dir
             )
             return data_ingestion_config
