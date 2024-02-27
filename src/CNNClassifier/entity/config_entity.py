@@ -14,6 +14,7 @@ class PrepareModelConfig:
     root_dir :Path 
     base_model_path :Path 
     updated_base_model_path :Path 
+    augmentation :str
     params_image_size : list 
     params_learning_rate :float 
     params_include_top : bool 

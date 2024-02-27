@@ -32,6 +32,13 @@ def create_directory(path_to_directory:list ,verbose=True):
         logging.info(f"Unable to create new directory {path_to_directory}")
         raise CustomException(e ,sys)
     
+
+# @ensure_annotations
+# def get_size(path: Path) -> str:
+#     size_in_kb = round(os.path.getsize(path)/1024)
+#     return f"~ {size_in_kb} KB"
+
+
 @ensure_annotations
 def save_json():
     pass 
@@ -47,8 +54,3 @@ def save_model():
 @ensure_annotations
 def load_model():
     pass 
-
-@ensure_annotations
-def get_size():
-    pass 
-

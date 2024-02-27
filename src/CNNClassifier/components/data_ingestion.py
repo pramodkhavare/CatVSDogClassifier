@@ -8,10 +8,16 @@ import tqdm as tqdm
 from CNNClassifier.config.configuration import ConfigurationManager
 from CNNClassifier.exception import CustomException 
 import os ,sys
+# from CNNClassifier.utils.utils import get_size
 
 class DataIngestion :
     def __init__(self ,config:ConfigurationManager):
         self.config = config 
+
+
+    def get_size(path: Path) -> str:
+        size_in_kb = round(os.path.getsize(path)/1024)
+        return f"~ {size_in_kb} KB"
 
     def download_file(self):
         try:
@@ -35,9 +41,9 @@ class DataIngestion :
         if not os.path.exists(target_filepath):
             zf.extract(f ,working_dir)
 
-        if os.path.getsize == 0:
-            os.remove(target_filepath)        
-
+        if os.path.getsize(target_filepath) == 0:
+            logging.info(f"removing file:{target_filepath} of size: {self.get_size(Path(target_filepath))}")
+            os.remove(target_filepath)
 
 
     def unzip_and_clean(self):

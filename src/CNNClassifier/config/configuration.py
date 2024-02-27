@@ -49,13 +49,13 @@ class ConfigurationManager():
                 base_model_path= config.base_model_path ,
                 updated_base_model_path= config.updated_base_model_path,
                 augmentation =self.param.AUGMENTATION,
-                image_size = self.param.IMAGE_SIZE ,
-                batch_size =self.param.BATCH_SIZE ,
-                include_top = self.param.INCLUDE_TOP,
-                epochs = self.param.EPOCHS ,
-                classes = self.param.CLASSES ,
-                weight = self.param.WEIGHTS ,
-                learning_rate = self.param.LEARNING_RATE
+                params_image_size = self.param.IMAGE_SIZE ,
+                params_learning_rate = self.param.LEARNING_RATE ,
+                # batch_size =self.param.BATCH_SIZE ,
+                params_include_top = self.param.INCLUDE_TOP,
+                # epochs = self.param.EPOCHS ,
+                params_classes = self.param.CLASSES ,
+                params_weights = self.param.WEIGHTS 
 
             )
             return prepare_base_model
@@ -99,7 +99,7 @@ class ConfigurationManager():
                 trained_model_path= config.trained_model_path  , 
                 updated_base_model_path= self.config.prepare_base_model.updated_base_model_path ,
                 training_data = training_data_path ,
-                params_epochs =  self.param.EPOCHS ,
+                param_epochs =  self.param.EPOCHS ,
                 param_batch_size= self.param.BATCH_SIZE  ,
                 param_is_augmentation= self.param.AUGMENTATION , 
                 param_image_size= self.param.IMAGE_SIZE
