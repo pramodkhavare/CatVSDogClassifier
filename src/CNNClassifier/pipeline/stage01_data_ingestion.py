@@ -3,7 +3,7 @@ from CNNClassifier.config.configuration import ConfigurationManager
 from CNNClassifier.logger import logging
 from CNNClassifier.exception import CustomException 
 import os ,sys
-from CNNClassifier.utils.utils import get_size
+# from CNNClassifier.utils.utils import get_size
 process = 'DataIngestion'
 
 
@@ -22,4 +22,3 @@ if __name__ == '__main__':
     main()
 
 
-# D:\Data Science\Deep Learning\Project\CatvsDogClassifier\src\CNNClassifier\pipeline\stage01_data_ingestion.py
